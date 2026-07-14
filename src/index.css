@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+
+body {
+  margin: 0;
+}
+
+.shiny-text {
+  background: linear-gradient(90deg, #64cefb 0%, #b3e5ff 25%, #ffffff 50%, #b3e5ff 75%, #64cefb 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Subtle radial vignette instead of heavy black overlay */
+.radial-vignette {
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+/* Curved glowing object placed behind the heading */
+.glowing-bg {
+  background: radial-gradient(circle at center, rgba(100, 206, 251, 0.15) 0%, rgba(100, 206, 251, 0.05) 40%, transparent 70%);
+  transform: scaleY(0.4);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Features: ambient blue glow blending the hero into the section */
+.features-glow {
+  background: radial-gradient(ellipse at top center, rgba(100, 206, 251, 0.12) 0%, rgba(100, 206, 251, 0.04) 35%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* Feature card: glassmorphism matching the nav pill language */
+.feature-card {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(100, 206, 251, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(100, 206, 251, 0.15);
+}
+
+/* Icon chip with subtle blue glow */
+.feature-icon {
+  background: rgba(100, 206, 251, 0.1);
+  border: 1px solid rgba(100, 206, 251, 0.25);
+  box-shadow: 0 0 20px rgba(100, 206, 251, 0.2);
+  color: #64cefb;
+}
+
+/* Staggered fade-up on scroll into view */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
