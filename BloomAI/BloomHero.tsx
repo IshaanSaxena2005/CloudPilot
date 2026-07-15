@@ -141,13 +141,13 @@ export default function BloomHero() {
         <div className="hidden lg:flex lg:w-[calc(100%-270px)] lg:ml-[270px] p-6 lg:p-8 flex-col gap-6">
           {/* Top Bar */}
           <div className="flex items-center justify-between">
-            <div className="liquid-glass rounded-full px-4 py-2 flex items-center gap-3">
-              <Search className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
-              <Bell className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
-              <RefreshCw className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
-              <Download className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
+            <div className="liquid-glass rounded-full px-5 py-2.5 flex items-center gap-3.5 hover:scale-[1.01] transition-transform">
+              <Search className="w-5 h-5 text-white hover:text-white/80 transition-colors cursor-pointer" />
+              <Bell className="w-5 h-5 text-white hover:text-white/80 transition-colors cursor-pointer" />
+              <RefreshCw className="w-5 h-5 text-white hover:text-white/80 transition-colors cursor-pointer" />
+              <Download className="w-5 h-5 text-white hover:text-white/80 transition-colors cursor-pointer" />
             </div>
-            <button className="liquid-glass rounded-full px-4 py-2 flex items-center gap-2 hover:scale-105 transition-transform">
+            <button className="liquid-glass rounded-full px-5 py-2.5 flex items-center gap-2.5 hover:scale-[1.03] transition-all duration-300">
               <User className="w-5 h-5 text-white" />
               <span className="text-white text-sm">Profile</span>
             </button>

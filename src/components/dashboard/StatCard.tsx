@@ -17,30 +17,30 @@ export default function StatCard({ stat, active }: StatCardProps) {
   })
 
   return (
-    <div className="stat-card relative isolate liquid-glass-stat-card rounded-[1.75rem] p-7 md:p-9 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(16,185,129,0.08)]">
+    <div className="stat-card relative isolate liquid-glass-stat-card rounded-[1.75rem] p-8 md:p-10">
       {/* Green ambient glow */}
       <div className="stat-card-glow"></div>
       
-      {/* Soft top highlight */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 rounded-t-[1.75rem] bg-gradient-to-b from-white/12 via-white/[0.04] to-transparent"></div>
-      <div className="pointer-events-none absolute inset-x-5 top-3 h-8 rounded-full bg-white/[0.06] blur-xl"></div>
-      <div className="pointer-events-none absolute -right-6 top-10 h-20 w-20 rounded-full bg-white/[0.05] blur-2xl"></div>
+      {/* Soft top highlight and inner reflections */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1/3 rounded-t-[1.75rem] bg-gradient-to-b from-white/14 via-white/[0.05] to-transparent"></div>
+      <div className="pointer-events-none absolute inset-x-5 top-4 h-9 rounded-full bg-white/[0.08] blur-2xl"></div>
+      <div className="pointer-events-none absolute -right-7 top-12 h-24 w-24 rounded-full bg-white/[0.06] blur-3xl"></div>
       
-      <div className="flex items-start justify-between mb-8">
-        <span className="text-[11px] tracking-[0.02em] text-white/[0.42] md:text-sm">{label}</span>
-        <div className="liquid-glass relative flex h-12 w-12 items-center justify-center rounded-full shadow-[inset_0_1px_2px_rgba(255,255,255,0.15)]">
-          <div className="pointer-events-none absolute inset-1 rounded-full bg-white/[0.04]"></div>
-          <Icon className="relative z-10 w-5 h-5 text-white" />
+      <div className="flex items-start justify-between mb-9">
+        <span className="text-[11px] tracking-[0.03em] text-white/[0.45] md:text-sm">{label}</span>
+        <div className="liquid-glass relative flex h-13 w-13 items-center justify-center rounded-full shadow-[inset_0_1px_3px_rgba(255,255,255,0.18)]">
+          <div className="pointer-events-none absolute inset-1.5 rounded-full bg-white/[0.06]"></div>
+          <Icon className="relative z-10 w-5.5 h-5.5 text-white" />
         </div>
       </div>
-      <div className="mb-5 text-3xl font-semibold leading-none tracking-[-0.03em] text-white tabular-nums md:text-4xl">
+      <div className="mb-6 text-white text-3xl md:text-4xl font-bold tracking-tight tabular-nums">
         {prefix}
         {formatted}
         {suffix}
       </div>
       <div
-        className={`flex items-center gap-1.5 text-[11px] md:text-xs ${
-          positive ? 'text-emerald-400/80' : 'text-white/40'
+        className={`flex items-center gap-1.5 text-xs ${
+          positive ? 'text-emerald-400/85' : 'text-white/45'
         }`}
       >
         {positive ? (
