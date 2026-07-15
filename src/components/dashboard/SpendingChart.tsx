@@ -37,7 +37,7 @@ export default function SpendingChart({ active }: SpendingChartProps) {
   const gridLines = [0, 0.25, 0.5, 0.75, 1]
 
   return (
-    <div className="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col">
+    <div className="liquid-glass rounded-2xl p-7 md:p-8 h-full flex flex-col">
       <div className="flex items-start justify-between mb-3">
         <div>
           <h3 className="text-white font-semibold text-base md:text-lg tracking-tight">

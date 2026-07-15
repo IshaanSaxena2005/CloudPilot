@@ -7,11 +7,14 @@ import {
   CreditCard, 
   Settings, 
   LogOut,
-  Wand2, 
-  BookOpen, 
   ArrowRight, 
   Share2 
 } from 'lucide-react'
+import StatCard from '../src/components/dashboard/StatCard'
+import SpendingChart from '../src/components/dashboard/SpendingChart'
+import RecommendationsPanel from '../src/components/dashboard/RecommendationsPanel'
+import ProviderCards from '../src/components/dashboard/ProviderCards'
+import { statCards } from '../src/data/dashboardData'
 
 export default function BloomHero() {
   return (
@@ -80,9 +83,9 @@ export default function BloomHero() {
         </div>
 
         {/* Right Panel - 48% (Desktop only) */}
-        <div className="hidden lg:flex lg:w-[48%] p-6 lg:p-8 flex-col">
+        <div className="hidden lg:flex lg:w-[48%] p-6 lg:p-8 flex-col gap-6">
           {/* Top Bar */}
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between">
             <div className="liquid-glass rounded-full px-4 py-2 flex items-center gap-3">
               <Share2 className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
               <Share2 className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
@@ -95,51 +98,27 @@ export default function BloomHero() {
             </button>
           </div>
 
-          {/* Community Card */}
-          <div className="liquid-glass w-56 rounded-2xl p-5 mb-8 hover:scale-105 transition-transform">
-            <h3 className="text-white font-medium mb-2">Enter our ecosystem</h3>
-            <p className="text-white/60 text-sm">Join thousands of creators designing the future of botanical art.</p>
-          </div>
+          {/* Dashboard Content */}
+          <div className="flex flex-col gap-6 flex-1 overflow-y-auto">
+            {/* Top Row - Stat Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              {statCards.map((stat, idx) => (
+                <StatCard key={stat.label} stat={stat} active={true} />
+              ))}
+            </div>
 
-          {/* Bottom Feature Section */}
-          <div className="mt-auto">
-            <div className="liquid-glass rounded-[2.5rem] p-6">
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                {/* Processing Card */}
-                <div className="liquid-glass rounded-3xl p-5 hover:scale-105 transition-transform">
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mb-3">
-                    <Wand2 className="w-4 h-4 text-white" />
-                  </div>
-                  <h4 className="text-white font-medium text-sm mb-1">Processing</h4>
-                  <p className="text-white/50 text-xs">AI-powered design tools</p>
-                </div>
-
-                {/* Growth Archive Card */}
-                <div className="liquid-glass rounded-3xl p-5 hover:scale-105 transition-transform">
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mb-3">
-                    <BookOpen className="w-4 h-4 text-white" />
-                  </div>
-                  <h4 className="text-white font-medium text-sm mb-1">Growth Archive</h4>
-                  <p className="text-white/50 text-xs">Track your creations</p>
-                </div>
+            {/* Middle Row - Chart + Recommendations */}
+            <div className="grid grid-cols-3 gap-4 flex-1">
+              <div className="col-span-2">
+                <SpendingChart active={true} />
               </div>
-
-              {/* Bottom Card */}
-              <div className="liquid-glass rounded-3xl p-4 flex items-center gap-4 hover:scale-105 transition-transform">
-                <img 
-                  src="/hero-flowers.png" 
-                  alt="Plant Sculpting" 
-                  className="w-24 h-16 object-cover rounded-xl"
-                />
-                <div className="flex-1">
-                  <h4 className="text-white font-medium text-sm mb-1">Advanced Plant Sculpting</h4>
-                  <p className="text-white/50 text-xs">Create stunning 3D botanical art</p>
-                </div>
-                <button className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:scale-105 transition-transform">
-                  <span className="text-white text-lg font-light">+</span>
-                </button>
+              <div className="col-span-1">
+                <RecommendationsPanel />
               </div>
             </div>
+
+            {/* Bottom Row - Provider Cards */}
+            <ProviderCards active={true} />
           </div>
         </div>
       </div>

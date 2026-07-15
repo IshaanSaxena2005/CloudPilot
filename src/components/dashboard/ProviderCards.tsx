@@ -9,7 +9,7 @@ export default function ProviderCards({ active }: ProviderCardsProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
       {providers.map(({ name, spend, change, positive, usage, color }) => (
-        <div key={name} className="glass-card rounded-2xl p-7">
+        <div key={name} className="liquid-glass rounded-2xl p-7">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
               <span

@@ -15,7 +15,7 @@ const badgeLabel: Record<Priority, string> = {
 
 export default function RecommendationsPanel() {
   return (
-    <div className="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col">
+    <div className="liquid-glass rounded-2xl p-7 md:p-8 h-full flex flex-col">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-white font-semibold text-base md:text-lg tracking-tight">
           AI Recommendations

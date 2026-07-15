@@ -17,7 +17,7 @@ export default function StatCard({ stat, active }: StatCardProps) {
   })
 
   return (
-    <div className="glass-card rounded-2xl p-7 md:p-8">
+    <div className="liquid-glass rounded-2xl p-7 md:p-8">
       <div className="flex items-start justify-between mb-6">
         <span className="text-white/60 text-xs md:text-sm">{label}</span>
         <div className="feature-icon w-10 h-10 rounded-xl flex items-center justify-center">
