@@ -32,10 +32,62 @@ export default function BloomHero() {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col lg:flex-row min-h-screen">
         
-        {/* Left Panel - 52% */}
-        <div className="w-full lg:w-[52%] relative p-6 lg:p-8 flex flex-col">
+        {/* Left Sidebar - Fixed 270px, SaaS-style */}
+        <div className="hidden lg:flex lg:w-[270px] h-screen fixed left-0 top-0 p-4 flex flex-col">
           {/* Liquid glass overlay */}
-          <div className="absolute inset-4 lg:inset-6 rounded-3xl liquid-glass-strong -z-10" />
+          <div className="absolute inset-2 lg:inset-4 rounded-3xl liquid-glass-strong -z-10" />
+
+          {/* CloudPilot Logo */}
+          <div className="flex items-center gap-3 mb-6 px-2">
+            <div className="relative w-7 h-7 rounded-full border-2 border-white/80 flex items-center justify-center">
+              <div className="w-3 h-3 rounded-full bg-white"></div>
+            </div>
+            <span className="text-white text-lg font-semibold tracking-tight">CloudPilot</span>
+          </div>
+
+          {/* Navigation - Centered Vertically */}
+          <div className="flex-1 flex items-center">
+            <nav className="flex flex-col gap-1.5 w-full px-2">
+              <a href="#" className="liquid-glass rounded-xl px-3 py-2.5 flex items-center gap-2.5 text-white/80 hover:text-white hover:scale-105 transition-all">
+                <LayoutDashboard className="w-[18px] h-[18px]" />
+                <span className="text-xs font-medium">Dashboard</span>
+              </a>
+              <a href="#" className="liquid-glass rounded-xl px-3 py-2.5 flex items-center gap-2.5 text-white/80 hover:text-white hover:scale-105 transition-all">
+                <DollarSign className="w-[18px] h-[18px]" />
+                <span className="text-xs font-medium">Cost Analysis</span>
+              </a>
+              <a href="#" className="liquid-glass rounded-xl px-3 py-2.5 flex items-center gap-2.5 text-white/80 hover:text-white hover:scale-105 transition-all">
+                <Activity className="w-[18px] h-[18px]" />
+                <span className="text-xs font-medium">Monitoring</span>
+              </a>
+              <a href="#" className="liquid-glass rounded-xl px-3 py-2.5 flex items-center gap-2.5 text-white/80 hover:text-white hover:scale-105 transition-all">
+                <TrendingUp className="w-[18px] h-[18px]" />
+                <span className="text-xs font-medium">Forecast</span>
+              </a>
+              <a href="#" className="liquid-glass rounded-xl px-3 py-2.5 flex items-center gap-2.5 text-white/80 hover:text-white hover:scale-105 transition-all">
+                <Sparkles className="w-[18px] h-[18px]" />
+                <span className="text-xs font-medium">AI Recommendations</span>
+              </a>
+              <a href="#" className="liquid-glass rounded-xl px-3 py-2.5 flex items-center gap-2.5 text-white/80 hover:text-white hover:scale-105 transition-all">
+                <CreditCard className="w-[18px] h-[18px]" />
+                <span className="text-xs font-medium">Billing</span>
+              </a>
+              <a href="#" className="liquid-glass rounded-xl px-3 py-2.5 flex items-center gap-2.5 text-white/80 hover:text-white hover:scale-105 transition-all">
+                <Settings className="w-[18px] h-[18px]" />
+                <span className="text-xs font-medium">Settings</span>
+              </a>
+              <a href="#" className="liquid-glass rounded-xl px-3 py-2.5 flex items-center gap-2.5 text-white/80 hover:text-white hover:scale-105 transition-all">
+                <LogOut className="w-[18px] h-[18px]" />
+                <span className="text-xs font-medium">Logout</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        {/* Mobile Left Panel (for small screens) */}
+        <div className="lg:hidden w-full relative p-6 flex flex-col">
+          {/* Liquid glass overlay */}
+          <div className="absolute inset-4 rounded-3xl liquid-glass-strong -z-10" />
 
           {/* CloudPilot Logo */}
           <div className="flex items-center gap-3 mb-12">
@@ -82,8 +134,8 @@ export default function BloomHero() {
           </nav>
         </div>
 
-        {/* Right Panel - 48% (Desktop only) */}
-        <div className="hidden lg:flex lg:w-[48%] p-6 lg:p-8 flex-col gap-6">
+        {/* Right Panel - Now filling remaining space (lg:w-[calc(100%-270px)]) */}
+        <div className="hidden lg:flex lg:w-[calc(100%-270px)] lg:ml-[270px] p-6 lg:p-8 flex-col gap-6">
           {/* Top Bar */}
           <div className="flex items-center justify-between">
             <div className="liquid-glass rounded-full px-4 py-2 flex items-center gap-3">
@@ -121,6 +173,8 @@ export default function BloomHero() {
             <ProviderCards active={true} />
           </div>
         </div>
+
+        {/* Mobile Right Panel Placeholder (for small screens) */}
       </div>
     </div>
   )
