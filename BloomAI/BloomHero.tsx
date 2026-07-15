@@ -157,7 +157,7 @@ export default function BloomHero() {
           <div className="flex flex-col gap-6 flex-1 overflow-y-auto">
             {/* Top Row - Stat Cards */}
             <div className="grid grid-cols-2 gap-4">
-              {statCards.map((stat, idx) => (
+              {statCards.map((stat) => (
                 <StatCard key={stat.label} stat={stat} active={true} />
               ))}
             </div>

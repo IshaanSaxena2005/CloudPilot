@@ -4,11 +4,11 @@ interface SpendingChartProps {
   active: boolean
 }
 
-const WIDTH = 640
-const HEIGHT = 240
-const PAD_X = 12
-const PAD_TOP = 20
-const PAD_BOTTOM = 28
+const WIDTH = 590
+const HEIGHT = 320
+const PAD_X = 20
+const PAD_TOP = 40
+const PAD_BOTTOM = 32
 
 export default function SpendingChart({ active }: SpendingChartProps) {
   const costs = spendTrend.map((p) => p.cost)
@@ -38,20 +38,20 @@ export default function SpendingChart({ active }: SpendingChartProps) {
 
   return (
     <div className="liquid-glass rounded-2xl p-7 md:p-8 h-full flex flex-col">
-      <div className="flex items-start justify-between mb-3">
-        <div>
-          <h3 className="text-white font-semibold text-base md:text-lg tracking-tight">
+      <div className="flex items-start justify-between mb-6">
+        <div className="mb-3">
+          <h3 className="text-white font-semibold text-base md:text-lg tracking-tight mb-2">
             Cloud Spending Trend
           </h3>
-          <p className="text-white/50 text-xs mt-0.5">Monthly cost, last 12 months</p>
+          <p className="text-white/50 text-xs">Monthly cost, last 12 months</p>
         </div>
-        <div className="flex items-center gap-2 text-xs text-white/60">
+        <div className="flex items-center gap-2 text-xs text-white/60 mb-3">
           <span className="w-2.5 h-2.5 rounded-full bg-[#64cefb] shadow-[0_0_10px_rgba(100,206,251,0.7)]"></span>
           Total spend
         </div>
       </div>
 
-      <div className="flex-grow mt-5">
+      <div className="flex-grow mt-8">
         <svg
           viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
           className="w-full h-full"
@@ -61,7 +61,7 @@ export default function SpendingChart({ active }: SpendingChartProps) {
         >
           <defs>
             <linearGradient id="spend-area" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="rgba(100,206,251,0.4)" />
+              <stop offset="0%" stopColor="rgba(100,206,251,0.2)" />
               <stop offset="100%" stopColor="rgba(100,206,251,0)" />
             </linearGradient>
             <linearGradient id="spend-line" x1="0" y1="0" x2="1" y2="0">
@@ -69,6 +69,20 @@ export default function SpendingChart({ active }: SpendingChartProps) {
               <stop offset="50%" stopColor="#b3e5ff" />
               <stop offset="100%" stopColor="#64cefb" />
             </linearGradient>
+            <filter id="line-glow">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="dot-glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
           </defs>
 
           {/* Grid */}
@@ -81,7 +95,7 @@ export default function SpendingChart({ active }: SpendingChartProps) {
                 y1={y}
                 x2={WIDTH - PAD_X}
                 y2={y}
-                stroke="rgba(255,255,255,0.05)"
+                stroke="rgba(255,255,255,0.02)"
                 strokeWidth={1}
               />
             )
@@ -99,9 +113,10 @@ export default function SpendingChart({ active }: SpendingChartProps) {
             d={linePath}
             fill="none"
             stroke="url(#spend-line)"
-            strokeWidth={2.5}
+            strokeWidth={3.5}
             strokeLinecap="round"
             strokeLinejoin="round"
+            filter="url(#line-glow)"
             className={`chart-line ${active ? 'is-drawn' : ''}`}
           />
 
@@ -109,15 +124,16 @@ export default function SpendingChart({ active }: SpendingChartProps) {
           <circle
             cx={points[points.length - 1].x}
             cy={points[points.length - 1].y}
-            r={4}
+            r={6}
             fill="#ffffff"
+            filter="url(#dot-glow)"
             className={`chart-area ${active ? 'is-drawn' : ''}`}
           />
         </svg>
       </div>
 
       {/* X axis labels */}
-      <div className="flex justify-between mt-4 px-1 text-[10px] text-white/40">
+      <div className="flex justify-between mt-6 px-1 text-[10px] text-white/40">
         {spendTrend.map((p) => (
           <span key={p.month}>{p.month}</span>
         ))}
