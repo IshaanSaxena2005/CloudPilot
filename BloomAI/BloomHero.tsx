@@ -7,8 +7,11 @@ import {
   CreditCard, 
   Settings, 
   LogOut,
-  ArrowRight, 
-  Share2 
+  Search, 
+  Bell, 
+  RefreshCw, 
+  Download, 
+  User 
 } from 'lucide-react'
 import StatCard from '../src/components/dashboard/StatCard'
 import SpendingChart from '../src/components/dashboard/SpendingChart'
@@ -139,14 +142,14 @@ export default function BloomHero() {
           {/* Top Bar */}
           <div className="flex items-center justify-between">
             <div className="liquid-glass rounded-full px-4 py-2 flex items-center gap-3">
-              <Share2 className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
-              <Share2 className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
-              <Share2 className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
-              <ArrowRight className="w-4 h-4 text-white" />
+              <Search className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
+              <Bell className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
+              <RefreshCw className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
+              <Download className="w-5 h-5 text-white hover:text-white/80 transition-colors" />
             </div>
             <button className="liquid-glass rounded-full px-4 py-2 flex items-center gap-2 hover:scale-105 transition-transform">
-              <Sparkles className="w-5 h-5 text-white" />
-              <span className="text-white text-sm">Account</span>
+              <User className="w-5 h-5 text-white" />
+              <span className="text-white text-sm">Profile</span>
             </button>
           </div>
 
