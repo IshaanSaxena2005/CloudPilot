@@ -2,9 +2,9 @@ import { recommendations } from '../../data/dashboardData'
 import type { Priority } from '../../data/dashboardData'
 
 const badgeClass: Record<Priority, string> = {
-  high: 'badge-high',
-  medium: 'badge-medium',
-  low: 'badge-low',
+  high: 'bg-red-500/20 text-red-300 border border-red-400/20',
+  medium: 'bg-amber-500/20 text-amber-300 border border-amber-400/20',
+  low: 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/20',
 }
 
 const badgeLabel: Record<Priority, string> = {
@@ -29,10 +29,10 @@ export default function RecommendationsPanel() {
         {recommendations.map(({ title, savings, priority, icon: Icon }) => (
           <div
             key={title}
-            className="group flex items-center gap-3 rounded-2xl p-4 border border-white/5 bg-white/[0.02] hover:border-[#64cefb]/35 hover:bg-[#64cefb]/[0.08] transition-all duration-300"
+            className="liquid-glass group flex items-center gap-4 rounded-[2rem] p-5 hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300"
           >
-            <div className="feature-icon w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
-              <Icon className="w-[18px] h-[18px]" />
+            <div className="liquid-glass w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+              <Icon className="w-5 h-5 text-white" />
             </div>
             <div className="min-w-0 flex-grow">
               <p className="text-white text-sm font-medium truncate">{title}</p>
@@ -41,7 +41,7 @@ export default function RecommendationsPanel() {
               </p>
             </div>
             <span
-              className={`shrink-0 text-[10px] font-semibold px-3 py-1.5 rounded-full ${badgeClass[priority]}`}
+              className={`liquid-glass shrink-0 text-[10px] font-semibold px-3 py-1.5 rounded-full ${badgeClass[priority]}`}
             >
               {badgeLabel[priority]}
             </span>
